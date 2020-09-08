@@ -8,3 +8,16 @@
     
 ## Restart PostgreSQL
     sudo systemctl restart postgresql
+
+## Create databases and roles
+
+Log into the PostgreSQL server as superuser
+
+    sudo su -c psql postgres postgres
+
+Create a database role for Okapi and a database to persist Okapi configuration
+
+    CREATE ROLE tecbib WITH PASSWORD 'tecbib' LOGIN CREATEDB;
+    CREATE DATABASE tecbib WITH OWNER tecbib;
+
+Exit psql with \q command
